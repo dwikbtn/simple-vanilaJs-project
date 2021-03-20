@@ -1,0 +1,10 @@
+body {
+  background: linear-gradient(to right, rgb(12, 179, 179), gold);
+  text-align: center;
+  text-transform: uppercase;
+  top: 15%;
+}
+
+.css-code {
+  text-transform: lowercase;
+}

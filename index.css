@@ -9,3 +9,12 @@
   padding: 70px;
   text-align: center;
 }
+
+/* section */
+.underline {
+  width: 6rem;
+  height: 0.25rem;
+  background: gold;
+  margin-left: auto;
+  margin-right: auto;
+}

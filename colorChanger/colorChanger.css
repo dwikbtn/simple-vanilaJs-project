@@ -7,3 +7,7 @@ body {
 .css-code {
   text-transform: lowercase;
 }
+
+.random {
+  top: 1rem;
+}

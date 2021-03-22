@@ -3,6 +3,7 @@ const body = document.querySelector("body");
 const cssCode = document.querySelector(".css-code");
 const addColor = document.querySelector(".add-color");
 const section = document.querySelector("section.container");
+const randomBtn = section.querySelector(".random-btn");
 
 //add Color
 addColor.addEventListener("click", function () {
@@ -49,16 +50,37 @@ changeColor = () => {
   }
 };
 
-//remove the plus
-// if (color2 != null) {
-//   const color2 = document.querySelector(".color2");
-//   console.log(color2);
-//   removeButtonEl = () => {
-//     const addcolorEl = document.querySelector("section.container .add-color");
-//     console.log(addColorEL);
-//   };
-// }
+// function for random values
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+randomColor = () => {
+  let r1 = getRandomInt(256);
+  let g1 = getRandomInt(256);
+  let b1 = getRandomInt(256);
+  let r2 = getRandomInt(256);
+  let g2 = getRandomInt(256);
+  let b2 = getRandomInt(256);
+  let randomGradient =
+    "linear-gradient(to right,rgb(" +
+    r1 +
+    ", " +
+    g1 +
+    ", " +
+    b1 +
+    "), rgb(" +
+    r2 +
+    ", " +
+    g2 +
+    ", " +
+    b2 +
+    "))";
+
+  body.style.background = randomGradient;
+};
 
 //start the input from the begining
 window.onload = changeColor();
 color1.addEventListener("input", changeColor);
+randomBtn.addEventListener("click", randomColor);

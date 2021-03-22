@@ -1,5 +1,4 @@
 const color1 = document.querySelector(".color1");
-const color2 = document.querySelector(".color2");
 const body = document.querySelector("body");
 const cssCode = document.querySelector(".css-code");
 const addColor = document.querySelector(".add-color");
@@ -19,17 +18,44 @@ addColor.addEventListener("click", function () {
     class: "color2",
     value: "#ffff66",
   });
-  console.log(inputClr2);
+
+  //create color2
+  const beforeColor = document.querySelector("section.container .css-code");
+  section.insertBefore(inputClr2, beforeColor);
+  const color2 = document.querySelector(".color2");
+
+  //change gradient
+  changeGradient = () => {
+    body.style.background =
+      "linear-gradient(to right, " + color1.value + ", " + color2.value + ")";
+  };
+
+  if (color2 != null) {
+    changeGradient();
+  }
+
+  color1.addEventListener("input", changeGradient);
+  color2.addEventListener("input", changeGradient);
 });
 
-//change color
+//change single color
 changeColor = () => {
-  body.style.background = `linear-gradient(to right, ${color1.value}, ${color2.value})`;
-  cssCode.textContent = body.style.background + ";";
+  const color2 = document.querySelector(".color2");
+  if (color2 == null) {
+    body.style.background = color1.value;
+  }
 };
+
+//remove the plus
+// if (color2 != null) {
+//   const color2 = document.querySelector(".color2");
+//   console.log(color2);
+//   removeButtonEl = () => {
+//     const addcolorEl = document.querySelector("section.container .add-color");
+//     console.log(addColorEL);
+//   };
+// }
 
 //start the input from the begining
 window.onload = changeColor();
-
 color1.addEventListener("input", changeColor);
-color2.addEventListener("input", changeColor);

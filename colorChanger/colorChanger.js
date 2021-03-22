@@ -26,12 +26,15 @@ addColor.addEventListener("click", function () {
 
   //change gradient
   changeGradient = () => {
-    body.style.background =
-      "linear-gradient(to right, " + color1.value + ", " + color2.value + ")";
+    body.style.background = `linear-gradient(to right, ${color1.value} , ${color2.value})`;
   };
 
+  //add gradient after click
   if (color2 != null) {
     changeGradient();
+    //removeAddButton
+    const addButton = document.querySelector("section.container .add-color");
+    section.removeChild(addButton);
   }
 
   color1.addEventListener("input", changeGradient);

@@ -230,24 +230,24 @@ img {
   border-radius: 50%;
 }
 
-.gajah,
-.orang,
-.semut {
+.rock,
+.paper,
+.scissor {
   transition: 0.3s;
   position: relative;
   top: 0;
   cursor: pointer;
 }
 
-.gajah:hover,
-.semut:hover,
-.orang:hover,
+.rock:hover,
+.paper:hover,
+.scissor:hover,
 .active {
   box-shadow: 0 0 10px 5px limegreen;
 }
 
-.gajah:active,
-.semut:active,
-.orang:active {
+.rock:active,
+.paper:active,
+.scissor:active {
   top: 2px;
 }

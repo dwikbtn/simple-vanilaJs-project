@@ -14,9 +14,10 @@ h1.header {
   text-align: center;
 }
 
-.day {
-  background-color: rgb(16, 143, 165);
+.day-margin {
+  padding: 10px;
 }
+
 .day h2 {
   color: deepskyblue;
 }

@@ -36,14 +36,21 @@ function change_bg() {
 change_bg();
 random_day_color();
 
-//add close button in every list
+//add new list
+
+const newTd = document.createElement("td");
+const buttons = document.querySelectorAll("button.btn");
+const inputs = document.querySelectorAll("input.form-control");
+const inputArray = [...inputs];
 const tableData = document.querySelectorAll("tbody tr");
 
+//close button
 tableData.forEach((table) => {
   const addButton = document.createElement("td");
-  const closeText = document.createTextNode("X");
-  addButton.appendChild(closeText);
+  const classes = document.createElement("button");
+  classes.className = "btn-close";
+
+  addButton.appendChild(classes);
 
   table.appendChild(addButton);
-  console.log(table);
 });

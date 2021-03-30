@@ -38,9 +38,12 @@ random_day_color();
 
 //add close button in every list
 const tableData = document.querySelectorAll("tbody tr");
-const addButton = document.createElement("td");
 
 tableData.forEach((table) => {
-  //add close button
-  console.log(addButton);
+  const addButton = document.createElement("td");
+  const closeText = document.createTextNode("X");
+  addButton.appendChild(closeText);
+
+  table.appendChild(addButton);
+  console.log(table);
 });

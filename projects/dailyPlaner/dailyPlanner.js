@@ -38,13 +38,41 @@ random_day_color();
 
 //add new list
 
-const newTd = document.createElement("td");
 const buttons = document.querySelectorAll("button.btn");
 const inputs = document.querySelectorAll("input.form-control");
 const inputArray = [...inputs];
-const tableData = document.querySelectorAll("tbody tr");
+const tb = document.querySelectorAll("tbody");
+const tbArray = [...tb];
+
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", function () {
+    //create time table
+    const tdTime = document.createElement("td");
+    const inputTime = document.createElement("input");
+    inputTime.setAttribute("type", "time");
+    tdTime.appendChild(inputTime);
+
+    let newTr = document.createElement("tr");
+    let newTd = document.createElement("td");
+    inputValue = document.createTextNode(inputArray[i].value);
+    newTr.appendChild(inputTime);
+    newTr.appendChild(newTd);
+    newTd.appendChild(inputValue);
+    tbArray[i].appendChild(newTr);
+    console.log(tbArray[i]);
+
+    newTr = null;
+    newTr = document.createElement("tr");
+    newTd = null;
+    newTd = document.createElement("td");
+  });
+}
+// buttons.forEach((button) => {
+
+// });
 
 //close button
+const tableData = document.querySelectorAll("tbody tr");
 tableData.forEach((table) => {
   const addButton = document.createElement("td");
   const classes = document.createElement("button");

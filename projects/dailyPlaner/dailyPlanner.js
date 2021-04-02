@@ -55,11 +55,11 @@ for (let i = 0; i < buttons.length; i++) {
     let newTr = document.createElement("tr");
     let newTd = document.createElement("td");
     inputValue = document.createTextNode(inputArray[i].value);
-    newTr.appendChild(inputTime);
+    newTr.appendChild(tdTime);
     newTr.appendChild(newTd);
     newTd.appendChild(inputValue);
     tbArray[i].appendChild(newTr);
-    console.log(tbArray[i]);
+    closeButton();
 
     newTr = null;
     newTr = document.createElement("tr");
@@ -67,18 +67,16 @@ for (let i = 0; i < buttons.length; i++) {
     newTd = document.createElement("td");
   });
 }
-// buttons.forEach((button) => {
-
-// });
-
 //close button
-const tableData = document.querySelectorAll("tbody tr");
-tableData.forEach((table) => {
-  const addButton = document.createElement("td");
-  const classes = document.createElement("button");
-  classes.className = "btn-close";
+function closeButton() {
+  const tableData = document.querySelectorAll("tbody tr");
+  tableData.forEach((table) => {
+    const addButton = document.createElement("td");
+    const classes = document.createElement("button");
+    classes.className = "btn-close";
 
-  addButton.appendChild(classes);
+    addButton.appendChild(classes);
 
-  table.appendChild(addButton);
-});
+    table.appendChild(addButton);
+  });
+}

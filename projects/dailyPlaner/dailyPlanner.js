@@ -51,32 +51,19 @@ for (let i = 0; i < buttons.length; i++) {
     const inputTime = document.createElement("input");
     inputTime.setAttribute("type", "time");
     tdTime.appendChild(inputTime);
-
+    //dd button
+    const addButton = document.createElement("td");
+    const classes = document.createElement("button");
+    classes.className = "btn-close";
+    addButton.appendChild(classes);
+    //add list
     let newTr = document.createElement("tr");
     let newTd = document.createElement("td");
     inputValue = document.createTextNode(inputArray[i].value);
     newTr.appendChild(tdTime);
     newTr.appendChild(newTd);
     newTd.appendChild(inputValue);
+    newTr.appendChild(addButton);
     tbArray[i].appendChild(newTr);
-    closeButton();
-
-    newTr = null;
-    newTr = document.createElement("tr");
-    newTd = null;
-    newTd = document.createElement("td");
-  });
-}
-//close button
-function closeButton() {
-  const tableData = document.querySelectorAll("tbody tr");
-  tableData.forEach((table) => {
-    const addButton = document.createElement("td");
-    const classes = document.createElement("button");
-    classes.className = "btn-close";
-
-    addButton.appendChild(classes);
-
-    table.appendChild(addButton);
   });
 }

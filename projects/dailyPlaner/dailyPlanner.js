@@ -46,24 +46,41 @@ const tbArray = [...tb];
 
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
-    //create time table
-    const tdTime = document.createElement("td");
-    const inputTime = document.createElement("input");
-    inputTime.setAttribute("type", "time");
-    tdTime.appendChild(inputTime);
-    //dd button
-    const addButton = document.createElement("td");
-    const classes = document.createElement("button");
-    classes.className = "btn-close";
-    addButton.appendChild(classes);
-    //add list
-    let newTr = document.createElement("tr");
-    let newTd = document.createElement("td");
-    inputValue = document.createTextNode(inputArray[i].value);
-    newTr.appendChild(tdTime);
-    newTr.appendChild(newTd);
-    newTd.appendChild(inputValue);
-    newTr.appendChild(addButton);
-    tbArray[i].appendChild(newTr);
+    if (inputArray[i].value != "") {
+      const tdTime = document.createElement("td");
+      const inputTime = document.createElement("input");
+      inputTime.setAttribute("type", "time");
+      tdTime.appendChild(inputTime);
+      //dd button
+      const addButton = document.createElement("td");
+      const classes = document.createElement("button");
+      classes.className = "btn-close";
+      addButton.appendChild(classes);
+      //add list
+      let newTr = document.createElement("tr");
+      let newTd = document.createElement("td");
+      newTd.className = "plan";
+      inputValue = document.createTextNode(inputArray[i].value);
+      newTr.appendChild(tdTime);
+      newTr.appendChild(newTd);
+      newTd.appendChild(inputValue);
+      newTr.appendChild(addButton);
+      tbArray[i].appendChild(newTr);
+
+      inputArray[i].value = "";
+      //catch the new TR and delete
+      deleteTR();
+    }
   });
+}
+
+//add cross
+function deleteTR() {
+  const delTr = document.querySelectorAll("tbody tr");
+  const selTr = document.querySelectorAll(".plan");
+  for (let i = 0; i < selTr.length; i++) {
+    selTr[i].addEventListener("click", function () {
+      delTr[i].classList.toggle("selected");
+    });
+  }
 }

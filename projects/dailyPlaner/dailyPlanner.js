@@ -70,17 +70,30 @@ for (let i = 0; i < buttons.length; i++) {
       inputArray[i].value = "";
       //catch the new TR and delete
       deleteTR();
+      deleteList();
     }
   });
 }
 
 //add cross
 function deleteTR() {
-  const delTr = document.querySelectorAll("tbody tr");
+  const checkTr = document.querySelectorAll("tbody tr");
   const selTr = document.querySelectorAll(".plan");
   for (let i = 0; i < selTr.length; i++) {
     selTr[i].addEventListener("click", function () {
-      delTr[i].classList.toggle("selected");
+      checkTr[i].classList.toggle("selected");
+    });
+  }
+}
+
+//add close button
+function deleteList() {
+  const selBtn = document.querySelectorAll(".btn-close");
+  const delTr = document.querySelectorAll("tbody tr");
+
+  for (let i = 0; i < selBtn.length; i++) {
+    selBtn[i].addEventListener("click", function () {
+      delTr[i].style.display = "none";
     });
   }
 }
